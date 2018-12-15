@@ -63,7 +63,7 @@ On the flowchart below, all traffic is going to `under-maintenance`, because the
 
 
 | Property   | Value |
-|------------|------:|
+|-----------:|-------|
 | language   | Go    |
 | port       | 80    |
 | image size | ~8MB  |
