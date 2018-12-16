@@ -3,6 +3,21 @@
 A very small Docker image that returns `Under maintenance` for every request made on the port 80.
 
 
+### Usage
+
+Pull the image from Docker Hub:
+
+```
+docker pull twinproduction/under-maintenance:latest
+```
+
+Run it:
+
+```
+docker run --name under-maintenance -p 0.0.0.0:80:80 twinproduction/under-maintenance
+```
+
+
 ### Why?
 
 Let's say your application goes down and you have no replicas. 
