@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  under-maintenance:
+    container_name: under-maintenance
+    build: ../
+    restart: always
+    environment:
+      # (optional) Status code to return. [DEFAULT: 503]
+      UNDER_MAINTENANCE_STATUS_CODE: 503
+      # (optional) Value the Retry-After header should return. [DEFAULT: 300]
+      UNDER_MAINTENANCE_RETRY_AFTER: 300
+    ports:
+      - 80:80
+    volumes:
+      - ./under-maintenance.html:/under-maintenance.html
