@@ -1,6 +1,7 @@
 # under-maintenance
 
-A very small Docker image that returns `Under maintenance` for every request made on the port 80 by default. The content returned can be customized, see 
+A very small Docker image that returns `Under maintenance` for every request made on the port 80 by default. 
+The content returned can be customized, see [Page Content](#page-content).
 
 By default, the status code returned will by 503 (Service Unavailable), but it can be customized through environment variable.
 
@@ -121,7 +122,7 @@ By default, the status code is 503, and truthfully, it should remain so.
 
 According to [RFC 2616 section 10](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html):
 
-> ##### 10.5.4 503 Service Unavailable
+> **10.5.4 503 Service Unavailable**
 > The server is currently unable to handle the request due to a temporary overloading or maintenance of the server. The implication is that this is a temporary condition which will be alleviated after some delay. If known, the length of the delay MAY be indicated in a Retry-After header. If no Retry-After is given, the client SHOULD handle the response as it would for a 500 response. 
 
 Returning 503 is supposedly also important if you're planning on having an extended maintenance period, otherwise, it could affect your search ranking.
@@ -140,7 +141,7 @@ There are two main use cases:
 In this case, you should use a fixed number. The unit is seconds and by default, the value is `300`. This will indicate that the website will be back up momentarily.
 
 2. **The application is ongoing massive changes, and will be down for longer than a day.**
-In this case, you should use a date. This will indicate that the user.
+In this case, you should use a date, more precisely, the date at which the maintenance is planned to be over.
 
 For more information, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
 
@@ -153,4 +154,4 @@ For more information, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Head
 |------------:|-------|
 | language    | Go    |
 | port        | 80    |
-| image size  | ~8MB  |
+| image size  | 6.5MB |
