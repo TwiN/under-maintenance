@@ -145,7 +145,7 @@ In this case, you should use a date, more precisely, the date at which the maint
 
 For more information, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
 
-**NOTE**: The `Retry-After` header will not be added if the status code is not 503 (default), 429 or 301.
+**NOTE**: The `Retry-After` header will not be added if the status code is not 503 (default) or 429.
 
 
 ## Specifications
