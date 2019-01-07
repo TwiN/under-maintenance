@@ -1,5 +1,7 @@
 # under-maintenance
 
+![](https://img.shields.io/docker/pulls/twinproduction/under-maintenance.svg)
+
 A very small Docker image that returns `Under maintenance` for every request made on the port 80 by default. 
 The content returned can be customized, see [Page Content](#page-content).
 
