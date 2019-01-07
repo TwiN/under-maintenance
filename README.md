@@ -1,6 +1,8 @@
 # under-maintenance
 
-![](https://img.shields.io/docker/pulls/twinproduction/under-maintenance.svg)
+[![Build Status](https://travis-ci.com/TwinProduction/under-maintenance.svg?branch=master)](https://travis-ci.com/TwinProduction/under-maintenance)
+[![Coverage Status](https://coveralls.io/repos/github/TwinProduction/under-maintenance/badge.svg?branch=master)](https://coveralls.io/github/TwinProduction/under-maintenance?branch=master)
+[![Docker pulls](https://img.shields.io/docker/pulls/twinproduction/under-maintenance.svg)](https://cloud.docker.com/repository/docker/twinproduction/under-maintenance)
 
 A very small Docker image that returns `Under maintenance` for every request made on the port 80 by default. 
 The content returned can be customized, see [Page Content](#page-content).
