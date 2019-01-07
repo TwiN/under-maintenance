@@ -4,6 +4,10 @@ go:
   - 1.10.x
   - tip
 
+notifications:
+  email:
+    - travis@twinnation.org
+
 install:
   - go get golang.org/x/tools/cmd/cover
   - go get github.com/mattn/goveralls
