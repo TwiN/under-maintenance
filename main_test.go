@@ -1,11 +1,11 @@
 package main
 
 import (
-	"testing"
+	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"os"
-	"io/ioutil"
+	"testing"
 )
 
 func resetTestEnvironment() {

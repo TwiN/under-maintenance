@@ -1,10 +1,10 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
-	"log"
 	"io/ioutil"
+	"log"
+	"net/http"
 	"os"
 	"strconv"
 )
