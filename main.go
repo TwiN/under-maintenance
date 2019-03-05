@@ -43,8 +43,7 @@ func requestHandler(writer http.ResponseWriter, request *http.Request) {
 
 func getContentToOutput() string {
 	content := "Under maintenance"
-	bytes, err := ioutil.ReadFile("under-maintenance.html")
-	if err == nil { // file exists
+	if bytes, err := ioutil.ReadFile("under-maintenance.html"); err == nil { // file exists
 		log.Println("Found file 'under-maintenance.html', using content of file as output.")
 		content = string(bytes)
 	} else {
@@ -54,10 +53,8 @@ func getContentToOutput() string {
 }
 
 func getStatusCode() int {
-	statusCodeFromEnvironment := os.Getenv(StatusCodeEnvironmentVariableName)
-	if len(statusCodeFromEnvironment) > 0 {
-		statusCode, err := strconv.ParseInt(statusCodeFromEnvironment, 10, 64)
-		if err != nil {
+	if statusCodeFromEnvironment := os.Getenv(StatusCodeEnvironmentVariableName); len(statusCodeFromEnvironment) > 0 {
+		if statusCode, err := strconv.ParseInt(statusCodeFromEnvironment, 10, 64); err != nil {
 			log.Printf("'%s' is not a valid status code, defaulting to %d\n", statusCodeFromEnvironment, http.StatusServiceUnavailable)
 		} else {
 			return int(statusCode)
@@ -68,8 +65,7 @@ func getStatusCode() int {
 
 func getRetryAfter(statusCode int) string {
 	if isValidStatusCodeForRetryAfter(statusCode) {
-		retryAfterFromEnvironment := os.Getenv(RetryAfterEnvironmentVariableName)
-		if len(retryAfterFromEnvironment) > 0 {
+		if retryAfterFromEnvironment := os.Getenv(RetryAfterEnvironmentVariableName); len(retryAfterFromEnvironment) > 0 {
 			return retryAfterFromEnvironment
 		}
 	}
