@@ -21,6 +21,7 @@ By default, the status code returned will by 503 (Service Unavailable), but it c
     + [Status code](#status-code)
     + [Retry-After](#retry-after)
   * [Specifications](#specifications)
+  * [Building locally](#building-locally)
 
 
 ## Usage
@@ -159,3 +160,12 @@ For more information, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Head
 | language    | Go    |
 | port        | 80    |
 | image size  | 6.5MB |
+
+
+## Building locally
+
+If you wish to build the image locally, you may do so by executing the following command:
+
+```
+docker build .
+```
