@@ -167,5 +167,5 @@ For more information, see https://developer.mozilla.org/en-US/docs/Web/HTTP/Head
 If you wish to build the image locally, you may do so by executing the following command:
 
 ```
-docker build .
+docker build . -t under-maintenance
 ```
