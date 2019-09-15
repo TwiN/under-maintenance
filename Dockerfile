@@ -2,7 +2,7 @@
 FROM golang:alpine as builder
 WORKDIR /app
 ADD . ./
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o under-maintenance .
 RUN echo "Under maintenance" >> under-maintenance.html
 
 # Run the binary on an empty container
