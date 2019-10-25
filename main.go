@@ -9,8 +9,10 @@ import (
 	"strconv"
 )
 
-var StatusCodeEnvironmentVariableName = "UNDER_MAINTENANCE_STATUS_CODE"
-var RetryAfterEnvironmentVariableName = "UNDER_MAINTENANCE_RETRY_AFTER"
+const (
+	StatusCodeEnvironmentVariableName = "UNDER_MAINTENANCE_STATUS_CODE"
+	RetryAfterEnvironmentVariableName = "UNDER_MAINTENANCE_RETRY_AFTER"
+)
 
 var statusCode int
 var retryAfter string
