@@ -1,1 +1,4 @@
 examples
+.github
+.gitignore
+.travis.yml

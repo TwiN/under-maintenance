@@ -9,9 +9,9 @@ import (
 )
 
 func resetTestEnvironment() {
-	os.Unsetenv(StatusCodeEnvironmentVariableName)
-	os.Unsetenv(RetryAfterEnvironmentVariableName)
-	os.Remove("under-maintenance.html")
+	_ = os.Unsetenv(StatusCodeEnvironmentVariableName)
+	_ = os.Unsetenv(RetryAfterEnvironmentVariableName)
+	_ = os.Remove("under-maintenance.html")
 }
 
 func TestDefaultStatusCode(t *testing.T) {
@@ -31,7 +31,7 @@ func TestDefaultStatusCode(t *testing.T) {
 
 func TestCustomStatusCode(t *testing.T) {
 	resetTestEnvironment()
-	os.Setenv(StatusCodeEnvironmentVariableName, "200")
+	_ = os.Setenv(StatusCodeEnvironmentVariableName, "200")
 	LoadConfiguration()
 
 	w, resp := createTestServer(t, "/")
@@ -68,7 +68,7 @@ func TestCustomMaintenancePage(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer f.Close()
-	f.WriteString("test")
+	_, _ = f.WriteString("test")
 	LoadConfiguration()
 
 	w, resp := createTestServer(t, "/")
