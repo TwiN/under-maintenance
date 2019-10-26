@@ -14,9 +14,11 @@ const (
 	RetryAfterEnvironmentVariableName = "UNDER_MAINTENANCE_RETRY_AFTER"
 )
 
-var statusCode int
-var retryAfter string
-var content string
+var (
+	statusCode int
+	retryAfter string
+	content    string
+)
 
 func init() {
 	// Because the config needs to be reloaded for every tests, all initialized
@@ -35,7 +37,7 @@ func LoadConfiguration() {
 	content = getContentToOutput()
 }
 
-func requestHandler(writer http.ResponseWriter, request *http.Request) {
+func requestHandler(writer http.ResponseWriter, _ *http.Request) {
 	if isValidStatusCodeForRetryAfter(statusCode) {
 		writer.Header().Set("Retry-After", retryAfter)
 	}
