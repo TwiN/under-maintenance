@@ -1,0 +1,62 @@
+apiVersion: v1
+data:
+  under-maintenance.html: "<!DOCTYPE html>
+  <html lang=\"en\">
+  <head>
+    <title>Under Maintenance</title>
+    <meta charset=\"utf-8\">
+    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+  </head>
+  <body>
+    <h2>Under Maintenance</h2>
+    <div>This is a custom page</div>
+  </body>
+  </html>"
+kind: ConfigMap
+metadata:
+  name: under-maintenance
+  namespace: default
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: under-maintenance
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: under-maintenance
+  template:
+    metadata:
+      name: under-maintenance
+      namespace: default
+      labels:
+        k8s-app: under-maintenance
+    spec:
+      containers:
+        - env:
+            - name: UNDER_MAINTENANCE_CUSTOM_FILE_PATH
+              value: /app/under-maintenance.html
+          image: twinproduction/under-maintenance
+          name: under-maintenance
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 50m
+              memory: 30M
+            requests:
+              cpu: 10m
+              memory: 10M
+          volumeMounts:
+            - mountPath: /app
+              name: under-maintenance-html
+      volumes:
+        - configMap:
+            defaultMode: 511
+            name: under-maintenance
+          name: under-maintenance-html

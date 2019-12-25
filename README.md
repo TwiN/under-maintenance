@@ -15,6 +15,7 @@ By default, the status code returned will by 503 (Service Unavailable), but it c
 - [under-maintenance](#under-maintenance)
   * [Table of Contents](#table-of-contents)
   * [Usage](#usage)
+    + [Kubernetes](#kubernetes)
   * [Why?](#why)
   * [Customization](#customization)
     + [Page content](#page-content)
@@ -114,6 +115,8 @@ services:
     volumes:
       - ./under-maintenance.html:/under-maintenance.html
 ```
+
+You can modify the path of the file the application will attempt to read by using the `UNDER_MAINTENANCE_CUSTOM_FILE_PATH` environment variable.
 
 **NOTE**: To reduce the footprint of the application, the content of the `under-maintenance.html` file is not read every time a request is received. 
 Instead, it is read only once when the application starts.
