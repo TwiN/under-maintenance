@@ -39,7 +39,7 @@ spec:
         - env:
             - name: UNDER_MAINTENANCE_CUSTOM_FILE_PATH
               value: /app/under-maintenance.html
-          image: twinproduction/under-maintenance
+          image: twinproduction/under-maintenance:v0.0.2
           name: under-maintenance
           ports:
             - containerPort: 80
