@@ -15,7 +15,6 @@ By default, the status code returned will by 503 (Service Unavailable), but it c
 - [under-maintenance](#under-maintenance)
   * [Table of Contents](#table-of-contents)
   * [Usage](#usage)
-    + [Kubernetes](#kubernetes)
   * [Why?](#why)
   * [Customization](#customization)
     + [Page content](#page-content)
