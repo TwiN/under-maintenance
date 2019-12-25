@@ -12,6 +12,7 @@ import (
 const (
 	StatusCodeEnvironmentVariableName = "UNDER_MAINTENANCE_STATUS_CODE"
 	RetryAfterEnvironmentVariableName = "UNDER_MAINTENANCE_RETRY_AFTER"
+	CustomFileEnvironmentVariableName = "UNDER_MAINTENANCE_CUSTOM_FILE_PATH"
 )
 
 var (
@@ -47,9 +48,13 @@ func requestHandler(writer http.ResponseWriter, _ *http.Request) {
 
 func getContentToOutput() string {
 	content := "Under maintenance"
-	if bytes, err := ioutil.ReadFile("under-maintenance.html"); err == nil { // file exists
-		log.Println("Found file 'under-maintenance.html', using content of file as output.")
+	filePath := "under-maintenance.html"
+	if customFilePath := os.Getenv(CustomFileEnvironmentVariableName); len(customFilePath) > 0 {
+		filePath = customFilePath
+	}
+	if bytes, err := ioutil.ReadFile(filePath); err == nil { // file exists
 		content = string(bytes)
+		log.Printf("Found file '%s', using content of file as output:\n%s", filePath, string(bytes))
 	} else {
 		log.Println("No template file provided, using default output.")
 	}
