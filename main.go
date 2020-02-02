@@ -43,7 +43,7 @@ func requestHandler(writer http.ResponseWriter, _ *http.Request) {
 		writer.Header().Set("Retry-After", retryAfter)
 	}
 	writer.WriteHeader(statusCode)
-	fmt.Fprint(writer, content)
+	_, _ = fmt.Fprint(writer, content)
 }
 
 func getContentToOutput() string {
